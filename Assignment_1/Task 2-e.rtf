@@ -1,0 +1,36 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww38200\viewh17940\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf0 Task 2.\
+\
+a) crawler is able to consume two arguments but after running task stated in step 2. Please wait for focused crawling to get finished on mars keywords and then enter URL and keywords when prompted. Data is being saved in files focused_entered_manually and Duplicates_focused_entered_maunally\
+\
+b) As mentioned above, this task is being run from line 151 to 160 and results are being saved in files focused_1.txt and Duplicates_focused.txt\
+      max depth reached in this case was 4 and links are saved in file focused_1.txt other file Duplicates_focused.txt saves number of duplicates found during this process by using BFS in json format.\
+\
+c) this is being done as mentioned in Task 1-h.\
+\
+d) This implementation is saving this data in Task Duplicates_focused.txt just for simplicity.\
+\
+e) As compared to task 1 BFS results are better following is the word count of given keywords:\
+\
+  focused                                     task 1 BFS \
+\
+  \
+   Mars(393)                                  Mars(16)\
+   Rover(54)                                  Rover(2)\
+   Orbiter(48)                                 Orbiter(6)\
+   Pathfinder(8)                             Pathfinder(0)\
+   Mission(102)                             Mission(8)\
+   Exploration(135)                       Exploration(40)\
+\
+\
+\
+So here we can clearly see that results are more focused towards keywords provided in focused crawling.\
+\
+To handle keyword variations this implementation converts all keywords to url and text to lowercase, and any keyword if matches with url or text it is considered.\
+ }

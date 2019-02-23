@@ -1,0 +1,53 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\fmodern\fcharset0 Courier;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue255;\red0\green0\blue0;\red38\green38\blue38;
+\red233\green233\blue233;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c100000;\cssrgb\c0\c0\c0;\cssrgb\c20000\c20000\c20000;
+\cssrgb\c92941\c92941\c92941;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww38200\viewh17940\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf0 Task 1.\
+\
+a) both runs of DFS and BFS uses 
+\f1 \cf2 \expnd0\expndtw0\kerning0
+https://en.wikipedia.org/wiki/Space_exploration \cf3 as seed URL.  BFS max depth in this implementation was 3 and DFS was 6.\
+\
+b) it is using politeness policy of 1 sec in line 25 of code.\
+\
+c). There are two separate methods bfs and dfs.\
+\
+d). 1. filtering out links with ":" on line 45.\
+     2.  links within same page start with #. So these are ignored but links in other pages have # in them so those are not ignored. line - 44. Because other pages are starting with wiki and have # in them.\
+     3.  As only utf-8 is being used (line 33) so non english pages are ignored. No external links, main wikipedia page, marginal/navigation links are not being followed because this implementation is only considering page which start with "/wiki" and are within page.\
+     4.  All the links with images etc. have structure /wiki/File: in them so  by filtering : we have already filtered them in step 1.\
+     5.  Redirects have HTTP status code 301, 302, 303, 307, 308. This implemtation only considers HTTP response 200 (line 30) so all redirects are filtered.\
+\
+e). max_depth in constructor is defined at 6 and in code it is being checked to not cross this depth and depth of seed is defined at 1 (lines: 71 bfs and 92 in dfs) Checks at lines 74 and 102.\
+\
+f) checks are done to only crawl 1000 urls or max depth 6 line 85 and 104. Files of links are being created named bfs_1.txt for BFS and dfs_1.txt for DFS.\
+\
+g) All html raw files are being downloaded and saved in scrap directory files are names scrappedX. where X is an integer number.\
+\
+h). Overlapping URLS in results:\
+     
+\f2 \cf4 \cb5 https://en.wikipedia.org/wiki/Space_Exploration_Technologies\
+	https://en.wikipedia.org/wiki/Spacex_(art_gallery)\
+   https://en.wikipedia.org/wiki/Geographic_coordinate_system\
+   https://en.wikipedia.org/wiki/England\
+   https://en.wikipedia.org/wiki/Canada\
+   https://en.wikipedia.org/wiki/Ontario\
+\
+	Only these 6 URLS are Overlapping in this implementation of DFS and BFS
+\f1 \cf3 \cb1 \
+ \
+In BFS top words after wikipedia, http, en, wiki, org are space(word count 150), list(145), exploration(40), moon (count 40), program (count 31), agency(27)......\
+\
+VS \
+\
+in DFS top words after wikipedia, http, en, wiki, org are united(168) kingdom(112) marine(66) states(56) corps(52)..........\
+\
+So we can clearly see that DFS is deviating from space exploration to united kingdom from very beginning. This is because of the very nature of the DFS to explore branches first.\
+\
+Efficiency of BFS is more because it searches all its children immediately as they are added to the result list, where as in DFS only one link is being added per recursive call.}
